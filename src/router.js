@@ -10,16 +10,15 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from './store/index'
 
 Vue.use(Router)
 async function checkAuthetication(to, from, next) {
-  await store.dispatch('auth/checkToken', 'Router');
   if (store.state.auth.token) {
     next()
-    return;
+  } else {
+    next('/login')
   }
-  console.log(1)
-  next('/login')
 }
 
 const router = new Router({
@@ -35,7 +34,7 @@ const router = new Router({
     {
       path: '',
       component: () => import('./layouts/main/Main.vue'),
-      beforeEnter: checkAuthetication(),
+      beforeEnter: checkAuthetication,
       children: [
 
         {

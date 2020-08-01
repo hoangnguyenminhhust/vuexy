@@ -48,18 +48,18 @@ export default {
       this.vueAppClasses.push(classesStr)
     },
     handleWindowResize () {
-      this.$store.commit('UPDATE_WINDOW_WIDTH', window.innerWidth)
+      this.$store.commit('screen/UPDATE_WINDOW_WIDTH', window.innerWidth)
 
       // Set --vh property
       document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`)
     },
     handleScroll () {
-      this.$store.commit('UPDATE_WINDOW_SCROLL_Y', window.scrollY)
+      this.$store.commit('screen/UPDATE_WINDOW_SCROLL_Y', window.scrollY)
     }
   },
   mounted () {
     this.toggleClassInBody(themeConfig.theme)
-    this.$store.commit('UPDATE_WINDOW_WIDTH', window.innerWidth)
+    this.$store.commit('screen/UPDATE_WINDOW_WIDTH', window.innerWidth)
 
     const vh = window.innerHeight * 0.01
     // Then we set the value in the --vh custom property to the root of the document
