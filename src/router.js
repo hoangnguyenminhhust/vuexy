@@ -34,7 +34,7 @@ const router = new Router({
     {
       path: '',
       component: () => import('./layouts/main/Main.vue'),
-      beforeEnter: checkAuthetication,
+      beforeEnter: checkAuthetication(),
       children: [
 
         {
