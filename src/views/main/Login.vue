@@ -162,7 +162,7 @@ export default {
         username: this.username,
         password: this.password,
       });
-      this.$router.push("/page2");
+      this.$router.push("/");
     },
   },
 };

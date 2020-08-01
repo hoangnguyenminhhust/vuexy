@@ -14,6 +14,7 @@ import store from './store/index'
 
 Vue.use(Router)
 async function checkAuthetication(to, from, next) {
+  await store.dispatch('auth/checkToken');
   if (store.state.auth.token) {
     next()
   } else {
